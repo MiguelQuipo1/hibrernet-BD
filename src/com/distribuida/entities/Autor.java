@@ -1,20 +1,54 @@
 package com.distribuida.entities;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 import org.springframework.stereotype.Component;
 
 @Component
+@Entity
+@Table(name = "autor")
 public class Autor {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_autor")
 	private int idAutor;
+	@Column(name = "nombre")
 	private String nombre;
+	@Column(name = "apellido")
 	private String apellido;
+	@Column(name = "pais")
 	private String pais;
+	@Column(name = "direccion")
 	private String direccion;
+	@Column(name = "telefono")
 	private String telefono;
+	@Column(name = "correo")
 	private String correo;
 	
 	public Autor() {}
 	
+	
+	
+	public Autor(int idAutor, String nombre, String apellido, String pais, String direccion, String telefono,
+			String correo) {
+		super();
+		this.idAutor = idAutor;
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.pais = pais;
+		this.direccion = direccion;
+		this.telefono = telefono;
+		this.correo = correo;
+	}
+
+
+
 	public int getIdAutor() {
 		return idAutor;
 	}
